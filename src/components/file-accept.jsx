@@ -1,13 +1,15 @@
 import React, { useCallback, useEffect, useState } from "react";
 import * as pdfjsLib from "pdfjs-dist";
-import pdfjsWorker from "pdfjs-dist/build/pdf.worker.entry";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { FileText, Trash2 } from "lucide-react";
+import {a} from "@/pdf.js";
 
-pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
+
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'src/pdf.js'
 
 export function PdfDropzone({ onTextExtracted }) {
+    console.log("value of a",a)
     const [file, setFile] = useState(null);
 
     const extractTextFromPDF = async (pdfFile) => {
